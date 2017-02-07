@@ -25,35 +25,9 @@ else if(attempt.value >= 10 ){
 }
 else {
   setMessage("Incorrect, try again.");
-}
-
-
-}
-
-function setHiddenFields () {
-  answer.value = Math.floor((Math.random() * 9999) + 0).toString;
-
- while (answer.value.length<4) {
-  answer.value="0" + answer.value;
  }
-attempt.value="0";
 }
 
-
-function setMessage (message) {
-  document.getElementById('message').innerHTML=message;
-}
-
-
-function validateInput(input) {
-  if (input.length!=4){
-    setMessage("Guesses must be exactly 4 characters long.");
-    return false;
-  }
-  else {
-    return true;
-    }
-}
 
 function getResults (input) {
   let html = "<div class="row"><span class="col-md-6">" + input + "</span><div class ="col-md-6">";
@@ -83,6 +57,22 @@ function getResults (input) {
 
 }
 
+
+
+function setHiddenFields () {
+  answer.value = Math.floor((Math.random() * 9999) + 0).toString;
+
+ while (answer.value.length<4) {
+  answer.value="0" + answer.value;
+ }
+attempt.value="0";
+}
+
+
+function setMessage (message) {
+  document.getElementById('message').innerHTML=message;
+}
+
 function showAnswer (success) {
 let code =  document.getElementById('code');
   if(success) {
@@ -97,4 +87,15 @@ let code =  document.getElementById('code');
 function showReplay () {
   document.getElementById('guessing-div').style.display = "none";
   document.getElementById('replay-div').style.display = "block";
+}
+
+
+function validateInput(input) {
+  if (input.length!=4){
+    setMessage("Guesses must be exactly 4 characters long.");
+    return false;
+  }
+  else {
+    return true;
+    }
 }
