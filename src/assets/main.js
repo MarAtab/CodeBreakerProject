@@ -4,45 +4,43 @@ let attempt = document.getElementById('attempt');
 function guess() {
     let input = document.getElementById('user-guess');
     //add functionality to guess function here
-if(answer.value = '' || attempt.value= ''){
-  setHiddenFields();
-}
-if(!validateInput(input.value) {
-  return;
-} else {
-  attempt.value++;
-}
+    if(answer.value == '' || attempt.value == ''){
+      setHiddenFields();
+    }
+    if(!validateInput(input.value)) {
+      return;
+    } else {
+      attempt.value++;
+    }
 
-if(getResults(input.value)) {
-  setMessage("You win! :)");
-  showAnswer(true);
-  showReplay();
-}
-else if(attempt.value >= 10 ){
-  setMessage("You Lose! :(");
-  showAnswer(false);
-  showReplay();
-}
-else {
-  setMessage("Incorrect, try again.");
- }
+    if(getResults(input.value)) {
+      setMessage("You win! :)");
+      showAnswer(true);
+      showReplay();
+    }
+    else if(attempt.value >= 10 ){
+      setMessage("You Lose! :(");
+      showAnswer(false);
+      showReplay();
+    }
+    else {
+      setMessage("Incorrect, try again.");
+    }
 }
 
 
 function getResults (input) {
-  let html = "<div class="row"><span class="col-md-6">" + input + "</span><div class ="col-md-6">";
-
-
+  let html = "<div class=\"row\"><span class=\"col-md-6\">" + input + "</span><div class =\"col-md-6\">";
 
     for(i=0; i<input.length;i++){
       if(input.charAt(i) == answer.value.charAt(i)){
-        html += "<span class="glyphicon glyphicon-ok"></span>";
+        html += "<span class=\"glyphicon glyphicon-ok\"></span>";
       }
-      if else (answer.value.indexOf(charAt(i)) > -1) {
-        html += "<span class="glyphicon glyphicon-transfer"></span>";
+      else if (answer.value.indexOf(answer.value.charAt(i)) > -1) {
+        html += "<span class=\"glyphicon glyphicon-transfer\"></span>";
       }
       else  {
-        html += "<span class="glyphicon glyphicon-remove"></span>";
+        html += "<span class=\"glyphicon glyphicon-remove\"></span>";
       }
 
     }
@@ -60,7 +58,8 @@ function getResults (input) {
 
 
 function setHiddenFields () {
-  answer.value = Math.floor((Math.random() * 9999) + 0).toString;
+  answer.value = Math.floor((Math.random() * 9999) + 0).toString();
+
 
  while (answer.value.length<4) {
   answer.value="0" + answer.value;
